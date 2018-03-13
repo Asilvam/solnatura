@@ -11,7 +11,8 @@ public class Conectar
         DriverManagerDataSource dataSource=new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
         //dataSource.setUrl("jdbc:postgresql://192.168.0.11:5432/postgres");
-        dataSource.setUrl("jdbc:postgresql://192.168.0.11:5432/postgres");
+        //dataSource.setUrl("jdbc:postgresql://192.168.0.11:5432/postgres");
+        dataSource.setUrl("jdbc:postgresql://asilvam.ddns.net:5432/postgres");
         dataSource.setUsername("postgres");
         dataSource.setPassword("admin");
         return dataSource;      
