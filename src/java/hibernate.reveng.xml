@@ -41,5 +41,6 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="postgres" match-schema="solnatura"/>
-  <table-filter match-name="producto"/>
+
+  <table-filter match-name="lista"/>
 </hibernate-reverse-engineering>

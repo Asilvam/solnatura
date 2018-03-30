@@ -39,9 +39,7 @@
     <bean name="UsuarioFormController" class="controller.UsuarioFormController" />
     <bean name="UsuarioMantController" class="controller.UsuarioMantController" />
     
-    <bean name="indexController"
-          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
-          p:viewName="index" />
+    <bean name="indexController" class="org.springframework.web.servlet.mvc.ParameterizableViewController" p:viewName="index" />
     
 
 </beans>

@@ -26,6 +26,6 @@
     <property name="url" value="jdbc:postgresql://asilvam.ddns.net:5432/postgres" />
     <property name="username" value="postgres" />
     <property name="password" value="admin" />
-</bean>
+    </bean>
 
 </beans>

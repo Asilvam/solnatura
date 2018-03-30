@@ -2,6 +2,7 @@
 package controller;
 
 import controller.modelos.Conectar;
+import controller.modelos.Lista;
 import controller.modelos.Usuario;
 import controller.modelos.UsuarioValidar;
 import static java.lang.Integer.parseInt;
@@ -71,7 +72,7 @@ public class UsuarioFormController {
         {
             //acá entramos si el usuario ingresó bien los datos y trae siguiente id valido desde la tabla
               
-            String sql="select nextval(\'solnatura.secidusuario\') ";             
+            String sql="select nextval(\'solnatura.secusuario\') ";             
             List datos= jdbcTemplate.queryForList(sql); 
             String s=datos.get(0).toString();
             s=s.substring(9);
@@ -79,13 +80,11 @@ public class UsuarioFormController {
             int idusuario= parseInt(s);
             this.jdbcTemplate.update
         (
-        "insert into solnatura.usuario (id , pass,tipo,\"user\",creado,actualizado, email) values (?,?,?,?,?,?,?)",
+        "insert into solnatura.usuario (id , pass,tipo,\"user\", email) values (?,?,?,?,?)",
          idusuario,
          u.getPass(),
          u.getTipo(),
          u.getUser(),
-         null,
-         null,
          u.getEmail()
         );
         return new ModelAndView("redirect:/usuariomant.htm");
@@ -96,8 +95,17 @@ public class UsuarioFormController {
     public Map<String,String> listadoTipo(){
     
     Map<String,String> tipo =new LinkedHashMap<>();
-    tipo.put ("A","Administrador");
-    tipo.put("O","Operador");
+    String tabla ="privilegio";
+    List<Lista> list = UsuarioMantControllerHB.getListaDetails(tabla);
+    for (int i = 0; i < list.size(); i++){
+//    for (int Lista lis: list){
+//        System.out.println(list.get(i).getValor());
+//        System.out.println(list.get(i+1).getValor());
+        tipo.put (list.get(i+1).getValor(),list.get(i).getValor());
+        i++;
+    }
+//    tipo.put ("A","Administrador");
+//    tipo.put("O","Operador");
     return tipo;
     
     }
